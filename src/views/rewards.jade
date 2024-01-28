@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container
+    h1.mt-5.mb-3 #{title}
+    p.lead Welcome to my Bootstrap-styled webpage.
+
+    .dashboard-table
+      table.table.table-hover
+        thead.table-dark
+          tr
+            th(scope="col") #
+            th(scope="col") Date
+            th(scope="col") User
+            th(scope="col") Image
+            th(scope="col") Actions
+        tbody
+          each row in rows
+            tr
+              th(scope="row")= row.ID
+              td= row.date
+              td= row.userID
+              td= row.image
+              td
+                button(type="button").btn.btn-sm.btn-outline-primary Details
