@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "fixtures": "node ./src/database/fixtures/create.js"
   },
   "dependencies": {
     "bootstrap": "^5.3.2",
