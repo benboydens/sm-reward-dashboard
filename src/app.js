@@ -6,7 +6,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const rewardsRouter = require('./routes/rewards');
+// const rewardsRouter = require('./routes/rewards');
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, '/../public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/rewards', rewardsRouter);
+// app.use('/rewards', rewardsRouter);
 app.use('/css', express.static(path.join(__dirname, '/../node_modules/bootstrap/dist/css')));
 
 
