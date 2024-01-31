@@ -7,9 +7,30 @@ router.get('/', function(req, res, next) {
 
     Rewards.all()
         .then((rows) => {
-            res.render('rewards', { title: 'Rewards', rows: rows });
+            if (req.accepts('html')) {
+                res.render('rewards', { title: 'Rewards', rows: rows });
+            } else {
+                res.json(rows);
+            }
         })
 
+});
+
+router.post('/', function(req, res, next) {
+    const user = req.body.userID;
+    const image = req.body.image;
+
+    Rewards.create(user, image)
+        .then(() => {
+            res.json({
+                'success': true
+            })
+        })
+        .catch(() => {
+            res.json({
+                'success': false
+            })
+        })
 });
 
 module.exports = router;

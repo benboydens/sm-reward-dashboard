@@ -31,6 +31,20 @@ const Users = {
                 resolve(row)
             })
         })
+    },
+
+    create: (name, computer) => {
+        return new Promise((resolve, reject) => {
+            db.run(`INSERT INTO users (name, computerName) VALUES (?, ?)`, name, computer, (err) => {
+
+                if (err) {
+                    console.log('Errors: ', err);
+                    reject(err)
+                }
+                
+                resolve()
+            })
+        })
     }
 }
 
@@ -61,6 +75,23 @@ const Rewards = {
                 }
                 
                 resolve(row)
+            })
+        })
+    },
+
+    create: (user, screenshot) => {
+        return new Promise((resolve, reject) => {
+
+            const curDate = new Date().toISOString();
+
+            db.run(`INSERT INTO rewards (date, userID, image) VALUES (?, ?, ?)`, curDate, user, screenshot, (err) => {
+
+                if (err) {
+                    console.log('Errors: ', err);
+                    reject(err)
+                }
+                
+                resolve()
             })
         })
     }
