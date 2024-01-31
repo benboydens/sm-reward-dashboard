@@ -1,3 +1,6 @@
+[functions]
+  external_node_modules = ["express", "jade"]
+  node_bundler = "esbuild"
 [[redirects]]
   force = true
   from = "/api/*"
